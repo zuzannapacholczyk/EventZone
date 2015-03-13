@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 12, 2015 11:38:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="model.Event" table="EVENTS">
+		<id name="id" type="integer">
+			<column name="ID" />
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+		<property name="organizer" type="java.lang.String">
+			<column name="ORGANIZER" />
+		</property>
+		<property name="place" type="java.lang.String">
+			<column name="PLACE" />
+		</property>
+		<property name="dateOfEvent" type="java.sql.Date">
+			<column name="DATEOFEVENT" />
+		</property>
+		<property name="dateOfCreation" type="java.sql.Date">
+			<column name="DATEOFCREATION" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" />
+		</property>
+	</class>
+</hibernate-mapping>

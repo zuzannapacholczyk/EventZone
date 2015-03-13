@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 12, 2015 11:38:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="model.Participant" table="PARTICIPANTS">
+		<id name="login" type="java.lang.String">
+			<column name="LOGIN" />
+			<generator class="assigned" />
+		</id>
+		<property name="eventId" type="integer">
+			<column name="EVENTID" />
+		</property>
+		<property name="personId" type="java.lang.String">
+			<column name="PERSONID" />
+		</property>
+		<property name="ifPaid" type="integer">
+			<column name="IFPAID" />
+		</property>
+		<property name="ticketId" type="integer">
+			<column name="TICKETID" />
+		</property>
+	</class>
+</hibernate-mapping>
