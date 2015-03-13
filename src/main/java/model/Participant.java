@@ -7,11 +7,20 @@ import java.io.Serializable;
  *
  */
 public class Participant implements Serializable {
+	private int id;
 	private int eventId;
 	private String personId;
 	private int ifPaid;
 	private int ticketId;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public int getEventId() {
 		return eventId;
 	}

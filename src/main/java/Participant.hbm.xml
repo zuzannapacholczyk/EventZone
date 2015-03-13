@@ -4,8 +4,8 @@
 <!-- Generated Mar 12, 2015 11:38:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
 	<class name="model.Participant" table="PARTICIPANTS">
-		<id name="login" type="java.lang.String">
-			<column name="LOGIN" />
+		<id name="id" type="integer">
+			<column name="ID" />
 			<generator class="assigned" />
 		</id>
 		<property name="eventId" type="integer">
