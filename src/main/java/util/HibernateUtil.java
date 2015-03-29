@@ -1,13 +1,15 @@
 package util;
 
+
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 /**
- * Zarz¹dzanie sesj¹ hibernate 
+ * Zarzï¿½dzanie sesjï¿½ hibernate 
  */
-public class HibernateUtil
-{
+public class HibernateUtil{
+	
     private static final SessionFactory sessionFactory;
 
     static
