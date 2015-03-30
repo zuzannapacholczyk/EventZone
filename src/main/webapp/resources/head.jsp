@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EventZone</title>
 <link href="<c:url value="resources/css/header.css" />" rel="stylesheet" type="text/css">
 <link href="<c:url value="resources/css/main_body.css" />" rel="stylesheet" type="text/css">
+<link href="<c:url value="resources/css/footer.css" />" rel="stylesheet" type="text/css">
+<link href="<c:url value="resources/css/bootstrap.css" />" rel="stylesheet" type="text/css">
+<link href="<c:url value="resources/css/bootstrap-social.css" />" rel="stylesheet" type="text/css">
+<link href="<c:url value="resources/css/font-awesome.css" />" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery.js"></script>
 </head>
 <body class ="main_style">
 	<div class="headBar"></div>

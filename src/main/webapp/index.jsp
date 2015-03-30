@@ -1,10 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/resources/head.jsp" />
-<link href="<c:url value="resources/css/bootstrap.css" />" rel="stylesheet" type="text/css">
-<link href="<c:url value="resources/css/bootstrap-social.css" />" rel="stylesheet" type="text/css">
 
-<link href="<c:url value="resources/css/font-awesome.css" />" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery.js"></script>
 
  	<div class="loginContainer">
  		<div id="login_and_create" class="line_divs">
@@ -18,7 +14,8 @@
 				</form>
 			</div>
 			<div class="div_block1" id="acc_create">
-				<h2>Don't have an account?</h2>
+				<h2>Welcome to EventZone!</h2>
+				<p class="lead">Don't have an account?</p>
 				<button class="btn btn-large btn-primary" >Create it now!</button>
 			</div>
 		</div>
@@ -39,10 +36,5 @@
 			  	</button>
 		  	</div>
 		</div>
- 	</div>
- 	<div id="page_footer">
  	
- 	</div>
-
-</body>
-</html>
+<jsp:include page="/resources/footer.jsp" />
