@@ -54,5 +54,11 @@
 	</dependencies>
 	<build>
 		<finalName>EventZone</finalName>
+		<plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+            </plugin>
+        </plugins>
 	</build>
 </project>

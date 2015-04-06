@@ -16,7 +16,7 @@
 			<div class="div_block1" id="acc_create">
 				<h2>Welcome to EventZone!</h2>
 				<p class="lead">Don't have an account?</p>
-				<button class="btn btn-large btn-primary" >Create it now!</button>
+				<a class="btn btn-large btn-primary" href="<c:url value="/register/" />">Create it now!</a>
 			</div>
 		</div>
 		

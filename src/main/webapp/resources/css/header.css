@@ -11,16 +11,9 @@
 	background-color: #34495e;
 }
 
-.headBar{
-	width: 100%;
-	height: 6px;
-	margin-left:auto;
-  	margin-right:auto;
-	background-color: #3c3c3c;
-}
 
 #page_header{
-	width: 1000px;
+	width: 100%x;
 	height: 220px;
 	margin-left:auto;
   	margin-right:auto;
