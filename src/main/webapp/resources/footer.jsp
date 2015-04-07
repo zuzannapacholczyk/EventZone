@@ -1,13 +1,13 @@
 	  
      
 	</div>
-	<div class="headBar">
+	<div class="footerBar">
 		<div id="footer_links">
-			<div id="my">
+			<div onclick="location.href='#';" style="cursor:pointer;" id="my">
 				<h3>O nas</h3>
 			</div >
 			
-			<div id="kontakt">
+			<div onclick="location.href='#';" style="cursor:pointer;" id="kontakt">
 				<h3>Kontakt</h3>
 			</div>
 		</div>

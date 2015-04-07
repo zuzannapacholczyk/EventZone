@@ -1,7 +1,10 @@
-package model;
+package service;
+
+import model.Event;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+
 import util.HibernateUtil;
 
 /**

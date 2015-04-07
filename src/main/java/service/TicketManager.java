@@ -1,6 +1,8 @@
-package model;
+package service;
 
 import java.util.List;
+
+import model.Ticket;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
