@@ -6,14 +6,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/EventZone/register/")
-public class LoginController {
-	
-	@RequestMapping( method = RequestMethod.GET)
-	public ModelAndView getRegisterPage(){
-		
+@RequestMapping("/register/")
+public class RegisterController {
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView getRegisterPage() {
+
 		ModelAndView model = new ModelAndView("RegisterViews/register");
-		
 
 		return model;
 	}

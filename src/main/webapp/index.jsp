@@ -2,7 +2,7 @@
 <jsp:include page="/resources/head.jsp" />
 
 
- 	<div class="loginContainer">
+ 	<div class="Container">
  		<div id="login_and_create" class="line_divs">
 	 		<div class="div_block1" id="standard_logging_form">
 	 			<form method="post" id="login_form">	
@@ -10,13 +10,13 @@
 					<input name="j_username" type="text" id="user_name"><br>
 					<h2><label for="user_password">Password</label></h2>
 					<input name="j_password" type="text" id="user_password"><br>
-					<button class="btn btn-large btn-success" type="submit">Sign in</button>
+					<button id="submit_btn" class="btn btn-large btn-success" type="submit">Sign in</button>
 				</form>
 			</div>
 			<div class="div_block1" id="acc_create">
 				<h2>Welcome to EventZone!</h2>
 				<p class="lead">Don't have an account?</p>
-				<a class="btn btn-large btn-primary" href="<c:url value="/register/" />">Create it now!</a>
+				<a class="btn btn-large btn-primary" href="<c:url value="/register/"  />">Create it now!</a>
 			</div>
 		</div>
 		

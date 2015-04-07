@@ -1,23 +1,19 @@
 @CHARSET "UTF-8";
 
 
-.loginContainer{
+.Container{
 	width: 980px;
 	margin-left:auto;
   	margin-right:auto;
   	margin-bottom: 0px;
-  	padding-left: 10px;
-  	padding-right: 10px;
-  	padding-top: 80px;
-  	padding-bottom: 50px;
+  	margin-top: 0;
+  	padding: 80px 0 50px 0;
+  
   	border-radius: 0px ;
   	background-color: white;
 }
 
 #standard_logging_form{
-	padding-right: 40px;
-	padding-left: 10px;
-	margin-left: 50px;
 	float: left;
 }
 
@@ -28,16 +24,33 @@
 }
 
 #other_logging_providers{
-	margin-top: 20px;
+	
 	text-align: center;
 	height: 200px;
 	width: auto;
-  	margin-left: 50px;
-  	margin-right: 50px;
+  	
   
   	
 }
 #buttons{}
+
+#submit_btn{
+	margin-top:	10px;
+	float: right;
+}
+
+#register_form{
+	float: left;
+	
+}
+
+#register_msg{
+	float: right;	
+	text-align: center;
+	width: 400px;
+	margin: 50px ;
+  	padding: 10px;
+}
 
 .line_divs{
 	display: inline-block;
@@ -51,9 +64,10 @@
   	border-style:solid;
   	border-radius: 10px;
   	background-color: #e9eaed;
-  	margin: 50px;
-  	padding: 10px;
+  	margin: 50px ;
+  	padding: 10px 20px 10px 20px;
 }
 
-
-
+.title{
+	margin-left: 50px;
+}
