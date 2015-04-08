@@ -7,16 +7,16 @@
 		<div class="line_divs">
 			<div class="div_block1" id="register_form">
 				<form:form modelAttribute="userForm" action="registerUser/" method="POST" >	
-			 		<h2><form:label path="login" required="true">Login</form:label></h2>
-						<form:input path="login"/><br>
+			 		<h2><form:label path="login" >Login</form:label></h2>
+						<form:input path="login" required="true"/><br>
 					<h2><form:label path="password">Password</form:label></h2>
 						<form:input path="password" type="password" required="true"/><br>
 					<h2><form:label path="name">Name</form:label></h2>
 						<form:input path="name"/><br>
 					<h2><form:label path="surname">Surname</form:label></h2>
 						<form:input path="surname"/><br>
-					<h2><form:label path="email" required="true">Email</form:label></h2>
-						<form:input path="email"/><br>
+					<h2><form:label path="email" >Email</form:label></h2>
+						<form:input path="email" required="true"/><br>
 					<button id="submit_btn"  class="btn btn-large btn-success" type="submit">Register</button>
 				</form:form>
 			</div>

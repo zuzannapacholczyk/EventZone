@@ -9,7 +9,7 @@
   	margin-right:auto;
   	margin-bottom: 0px;
   	margin-top: 0;
-  	padding: 80px 0 50px 0;
+  	padding: 80px 0 80px 0;
   
   	border-radius: 0px ;
   	background-color: white;
@@ -22,7 +22,7 @@
 #acc_create{
 	float: right;
 	text-align: center;
-	
+	padding: 40px;
 }
 
 #other_logging_providers{
