@@ -54,6 +54,7 @@ public class User implements Serializable {
 	}
 
 	public String toString() {
-		return password + " " + login + " " + name + " " + surname + " " + email;
+		return "p: " + password + " " + "l: " + login + " " + "n: " + name + " " + "s: " + surname + " " + "e: "
+				+ email;
 	}
 }

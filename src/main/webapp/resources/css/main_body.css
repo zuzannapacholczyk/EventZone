@@ -1,6 +1,8 @@
 @CHARSET "UTF-8";
 
 
+
+
 .Container{
 	width: 980px;
 	margin-left:auto;
@@ -44,6 +46,11 @@
 	
 }
 
+.browser-spec{
+	height: 80%;
+	
+}
+
 #register_msg{
 	float: right;	
 	text-align: center;
@@ -55,7 +62,7 @@
 .line_divs{
 	display: inline-block;
 	width: 100%;
-	height: auto;
+	
 }
 
 .div_block1{

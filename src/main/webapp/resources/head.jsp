@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=iso-8859-2" pageEncoding="iso-8859-2"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +15,15 @@
 <link href="<c:url value="/resources/css/footer.css" />" rel="stylesheet" type="text/css">
 <script src="<c:url value="/resources/js/AjaxManager.js" />"></script>
 <script src="http://code.jquery.com/jquery.js"></script>
+
+<style type="text/css">
+		 body {
+		    height: 100vh;
+		}
+	</style>
 </head>
 <body class ="main_style">
+	
 	
  	<div onclick="location.href='/EventZone/';" style="cursor:pointer;"  id="page_header">
 		<img class="logo" src="<c:url value="/resources/logo.png" />">

@@ -1,24 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <jsp:include page="/resources/head.jsp" />
 	
-	<div class="Container ">
+	<div class="Container">
 		<h1 class="title">Registration </h1>
 		<div class="line_divs">
 			<div class="div_block1" id="register_form">
-				
-				<form action="<c:url value="registerUser/" />" method="post" enctype="application/json">	
-			 		<h2><label id="labels" for="login">Login</label></h2>
-					<input type="text" name="login"><br>
-					<h2><label for="password">Password</label></h2>
-					<input type="text" name="password"><br>
-					<h2><label for="name">Name</label></h2>
-					<input type="text" name="name"><br>
-					<h2><label for="surname">Surname</label></h2>
-					<input type="text" name="surname"><br>
-					<h2><label for="email">Email</label></h2>
-					<input type="text" name="email"><br>
+				<form:form modelAttribute="userForm" action="registerUser/" method="POST" >	
+			 		<h2><form:label path="login" required="true">Login</form:label></h2>
+						<form:input path="login"/><br>
+					<h2><form:label path="password">Password</form:label></h2>
+						<form:input path="password" type="password" required="true"/><br>
+					<h2><form:label path="name">Name</form:label></h2>
+						<form:input path="name"/><br>
+					<h2><form:label path="surname">Surname</form:label></h2>
+						<form:input path="surname"/><br>
+					<h2><form:label path="email" required="true">Email</form:label></h2>
+						<form:input path="email"/><br>
 					<button id="submit_btn"  class="btn btn-large btn-success" type="submit">Register</button>
-				</form>
+				</form:form>
 			</div>
 			<div id="register_msg">
 				<h1>We're happy to have you here!</h1>
