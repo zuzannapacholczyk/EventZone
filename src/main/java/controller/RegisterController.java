@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import exceptions.CreateAccountException;
 import service.UserManager;
 
 @Controller
@@ -30,24 +31,27 @@ public class RegisterController {
 	}
 
 	@RequestMapping(value = "registerUser/", method = RequestMethod.POST)
-	public ModelAndView registerUser(@ModelAttribute("userForm") final User user, final BindingResult result) {
+	public ModelAndView registerUser(
+			@ModelAttribute("userForm") final User user,
+			final BindingResult result) {
 
 		ModelAndView model = new ModelAndView("RegisterViews/registerOutcome");
 
-		// mamy pewność ze service działa czyli andotacja @Autowired dopasowała bean
+		// mamy pewność ze service działa czyli andotacja @Autowired
+		// dopasowała bean
 		// z pliku dispatcher-servlet.xml do pola userManager powyżej
 		// w celach debugowania mozna to tutaj zostawic :P
 		userManager.testService();
 		User newUser = user;
 		System.out.println(" user info: " + newUser.toString());
 
-		// try {
-		// userManager.saveUser(newUser);
-		// } catch (CreateAccountException e) {
-		// model.addObject("whyFailureMsg", e.getMessage());
-		// model.addObject("success", false);
-		// return model;
-		// }
+		try {
+			userManager.saveUser(newUser);
+		} catch (CreateAccountException e) {
+			model.addObject("whyFailureMsg", e.getMessage());
+			model.addObject("success", false);
+			return model;
+		}
 
 		model.addObject("successMsg", "Your account has been created!");
 		model.addObject("success", true);
