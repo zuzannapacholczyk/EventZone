@@ -3,6 +3,12 @@
 
 
  	<div class="Container">
+ 		<c:if test="${not empty successMsg}">
+ 			<div style="margin: 0px 50px" class="alert alert-success" role="alert">
+		      <strong>Well done!</strong> Your account has been created! <br>You may login now.
+		    </div>
+		</c:if>
+ 	
  		<div id="login_and_create" class="line_divs">
 	 		<div class="div_block1" id="standard_logging_form">
 	 			<form method="post" id="login_form">	

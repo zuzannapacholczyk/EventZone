@@ -4,9 +4,15 @@
 	
 	<div class="Container">
 		<h1 class="title">Registration </h1>
+		
+		<c:if test="${not empty registerFailureMsg}">
+			<div style="margin: 30px 50px 0 50px" class="alert alert-danger" role="alert">
+		    	<strong>Oh snap!</strong> <c:out value="${registerFailureMsg}"/>
+		    </div>
+		</c:if>
 		<div class="line_divs">
 			<div class="div_block1" id="register_form">
-				<form:form modelAttribute="userForm" action="registerUser/" method="POST" >	
+				<form:form modelAttribute="userForm" action="/EventZone/register/registerUser/" method="POST" >	
 			 		<h2><form:label path="login" >Login</form:label></h2>
 						<form:input path="login" required="true"/><br>
 					<h2><form:label path="password">Password</form:label></h2>
