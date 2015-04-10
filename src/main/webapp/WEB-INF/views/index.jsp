@@ -5,17 +5,23 @@
  	<div class="Container">
  		<c:if test="${not empty successMsg}">
  			<div style="margin: 0px 50px" class="alert alert-success" role="alert">
-		      <strong>Well done!</strong> Your account has been created! <br>You may login now.
+		      <strong>Well done!</strong> Your account has been created! 
+		      <br>You may login now.
+		    </div>
+		</c:if>
+		<c:if test="${not empty error}">
+			<div style="margin: 30px 50px 0 50px" class="alert alert-danger" role="alert">
+		    	<strong>Oh snap!</strong> <c:out value="${error}"/>
 		    </div>
 		</c:if>
  	
  		<div id="login_and_create" class="line_divs">
 	 		<div class="div_block1" id="standard_logging_form">
-	 			<form method="post" id="login_form">	
+	 			<form method="post" id="login_form" action="<c:url value='j_spring_security_check' />">	
 			 		<h2><label id="labels" for="user_name">Login</label></h2>
 					<input name="j_username" type="text" id="user_name"><br>
 					<h2><label for="user_password">Password</label></h2>
-					<input name="j_password" type="text" id="user_password"><br>
+					<input name="j_password" type="password" id="user_password"><br>
 					<button id="submit_btn" class="btn btn-large btn-success" type="submit">Sign in</button>
 				</form>
 			</div>
