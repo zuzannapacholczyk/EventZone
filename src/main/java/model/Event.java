@@ -1,13 +1,12 @@
 package model;
 
-import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * @author Zu
  *
  */
-public class Event implements Serializable {
+public class Event {
 	private int id;
 	private String name;
 	private String organizer;

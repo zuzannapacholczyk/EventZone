@@ -1,12 +1,11 @@
 package model;
 
-import java.io.Serializable;
 
 /**
  * @author Zu
  *
  */
-public class Participant implements Serializable {
+public class Participant {
 	private int id;
 	private int eventId;
 	private String personId;

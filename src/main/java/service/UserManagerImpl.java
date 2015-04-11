@@ -1,5 +1,8 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.User;
 
 import org.hibernate.HibernateException;
@@ -52,25 +55,25 @@ public class UserManagerImpl extends UserManager {
 
 	public void saveUser(final User user) throws CreateAccountException {
 
-		// getUserByEmail(user.getEmail());
-		// getUserByLogin(user.getLogin());
-		// try {
-		// Session session = HibernateUtil.getSessionFactory()
-		// .getCurrentSession();
-		// session.beginTransaction();
-		//
-		// session.saveOrUpdate(user);
-		// session.getTransaction().commit();
-		// // } catch (LoginAlreadyInUse e) {
-		// // throw new
-		// // CreateAccountException("This login is already in use. You have to choose another one.");
-		// // } catch (EmailAlreadyInUse e) {
-		// // throw new
-		// // CreateAccountException("This email is already in use. You have to choose another one.");
-		// } catch (HibernateException e) {
-		// session.getTransaction().rollback();
-		// throw new CreateAccountException("HibernateException");
-		// }
+		 getUserByEmail(user.getEmail());
+		 getUserByLogin(user.getLogin());
+		 try {
+		 Session session = HibernateUtil.getSessionFactory()
+		 .getCurrentSession();
+		 session.beginTransaction();
+		
+		 session.saveOrUpdate(user);
+		 session.getTransaction().commit();
+		 // } catch (LoginAlreadyInUse e) {
+		 // throw new
+		 // CreateAccountException("This login is already in use. You have to choose another one.");
+		 // } catch (EmailAlreadyInUse e) {
+		 // throw new
+		 // CreateAccountException("This email is already in use. You have to choose another one.");
+		 } catch (HibernateException e) {
+		 session.getTransaction().rollback();
+		 throw new CreateAccountException("HibernateException");
+		 }
 
 	}
 
@@ -90,6 +93,24 @@ public class UserManagerImpl extends UserManager {
 		if (user == null) {
 			throw new WrongLoginOrPassword("Wrong login or password");
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public User findUserByLogin(String login) {
+		List<User> users = new ArrayList<User>();
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		try {
+			users = session.createQuery("from User" + " where login = ?").setString(0, login).list();
+			session.getTransaction().commit();
+			if (users.size() > 0) {
+				return users.get(0);
+			} 
+		} catch (HibernateException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return null;
 	}
 
 }

@@ -16,6 +16,8 @@ public abstract class UserManager {
 
 	public abstract void loginUser(String login, String password)
 			throws WrongLoginOrPassword;
+	
+	public abstract User findUserByLogin(String login);
 
 	public void testService() {
 		System.out.println("service works");

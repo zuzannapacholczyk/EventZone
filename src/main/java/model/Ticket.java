@@ -1,12 +1,11 @@
 package model;
 
-import java.io.Serializable;
 
 /**
  * @author Zu
  *
  */
-public class Ticket implements Serializable {
+public class Ticket {
 	private int eventId;
 	private int quantity;
 	private float cost;
