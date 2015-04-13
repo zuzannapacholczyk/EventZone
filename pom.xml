@@ -61,6 +61,13 @@
 			<version>3.6.3.Final</version>
 		</dependency>
 		
+		<!--  oracle and hibernate util stuff -->
+		<dependency>
+		    <groupId>javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		    <version>3.12.1.GA</version>
+		</dependency>
+		
 		<!-- jar for "c" taglib in jsp files -->
 		<dependency>
 			<groupId>jstl</groupId>

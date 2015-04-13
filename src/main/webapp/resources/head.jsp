@@ -9,18 +9,16 @@
 <title>EventZone</title>
 <link href="<c:url value="/resources/css/header.css" />" rel="stylesheet" type="text/css">
 <link href="<c:url value="/resources/css/main_body.css" />" rel="stylesheet" type="text/css">
-<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet" type="text/css">
+<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css">
 <link href="<c:url value="/resources/css/bootstrap-social.css" />" rel="stylesheet" type="text/css">
 <link href="<c:url value="/resources/css/font-awesome.css" />" rel="stylesheet" type="text/css">
 <link href="<c:url value="/resources/css/footer.css" />" rel="stylesheet" type="text/css">
 <script src="<c:url value="/resources/js/AjaxManager.js" />"></script>
 <script src="http://code.jquery.com/jquery.js"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 
-<style type="text/css">
-		 body {
-		    height: 100vh;
-		}
-	</style>
+
+
 </head>
 <body class ="main_style">
 	

@@ -18,7 +18,7 @@
  		<div id="login_and_create" class="line_divs">
 	 		<div class="div_block1" id="standard_logging_form">
 	 			<form method="post" id="login_form" action="<c:url value='j_spring_security_check' />">	
-			 		<h2><label id="labels" for="user_name">Login</label></h2>
+			 		<h2><label for="user_name">Login</label></h2>
 					<input name="j_username" type="text" id="user_name"><br>
 					<h2><label for="user_password">Password</label></h2>
 					<input name="j_password" type="password" id="user_password"><br>
