@@ -37,6 +37,11 @@
           </div><!--/.nav-collapse -->
         </div>
       </nav>
+      	<br><br>
+      	<h2>Welcome <c:out value="${username}"></c:out>!
+      		This is the main page!
+			<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
+      	</h2>
 		</div>
 		  <hr class="featurette-divider">
 		  <div class="row featurette">	  	
