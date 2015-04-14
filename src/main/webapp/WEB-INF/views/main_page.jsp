@@ -3,47 +3,48 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/resources/head.jsp" />
 	
-	<div class="Container">
-		<div class="">
-		 <nav class="navbar navbar-inverse">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">EventZone</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+	<div class="fixedElement">
+		<nav class="navbar navbar-inverse" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="/EventZone/">EventZone</a>
+		  </div>
+		
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse navbar-ex1-collapse">
+		    <ul class="nav navbar-nav">
+		      <li ><a href="#">Home</a></li>
+		      <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Events<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><a href="#">Create an Event</a></li>
+                  <li><a href="#">Manage my Events</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
+                  <li><a href="#">Subscribe to an Event</a></li>
+                  <li><a href="#">Manage subscribed Events</a></li>
                 </ul>
               </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </nav>
-      	<br><br>
-      	<h2>Welcome <c:out value="${username}"></c:out>!
-      		This is the main page!
-			<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
-      	</h2>
+		      <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
+		    </ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+	</div>
+	
+	<div class="Container">
+		
+		<div class="top">
+	      	<h2>Welcome <c:out value="${username}"></c:out>!
+	      		This is the main page!
+	      	</h2>
 		</div>
-		  <hr class="featurette-divider">
+		<br><br><br>
+		<hr class="featurette-divider">
 		  <div class="row featurette">	  	
 	        <div class="col-md-7">
 	          <h2 class="featurette-heading">Event number one. <span class="text-muted">It'll be fun.</span></h2>
