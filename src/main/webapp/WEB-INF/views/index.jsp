@@ -5,30 +5,36 @@
  	<div class="Container">
  		<c:if test="${not empty successMsg}">
  			<div style="margin: 0px 50px" class="alert alert-success" role="alert">
-		      <strong>Well done!</strong> Your account has been created! 
-		      <br>You may login now.
+		      <p class="lead"><strong>Well done!</strong> Your account has been created!</p> 
+		      <br><span class="lead">You may login now.</span>
 		    </div>
 		</c:if>
 		<c:if test="${not empty error}">
 			<div style="margin: 30px 50px 0 50px" class="alert alert-danger" role="alert">
-		    	<strong>Oh snap!</strong> <c:out value="${error}"/>
+		    	<p class="lead"><strong>Oh snap!</strong> <c:out value="${error}"/></p>
 		    </div>
 		</c:if>
  	
  		<div id="login_and_create" class="line_divs">
 	 		<div class="div_block1" id="standard_logging_form">
 	 			<form method="post" id="login_form" action="<c:url value='j_spring_security_check' />">	
-			 		<h2><label for="user_name">Login</label></h2>
-					<input name="j_username" type="text" id="user_name"><br>
-					<h2><label for="user_password">Password</label></h2>
-					<input name="j_password" type="password" id="user_password"><br>
-					<button id="submit_btn" class="btn btn-large btn-success" type="submit">Sign in</button>
+			 		<div class="form-group">
+                        <label for="user_name" class="lead control-label">Username</label>
+                        <input type="text" class="form-control" id="user_name" name="j_username" required="true" title="Please enter you username" ></input>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_password" class="lead control-label">Password</label></h3>
+                        <input type="password" class="form-control" id="user_password" name="j_password" required="true" title="Please enter you username"></input>
+                        <span class="help-block"></span>
+                    </div>
+					<button id="submit_btn" class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
 				</form>
 			</div>
 			<div class="div_block1" id="acc_create">
 				<h2>Welcome to EventZone!</h2>
-				<p class="lead">Don't have an account?</p>
-				<a class="btn btn-large btn-primary" href="<c:url value="/register/"  />">Create it now!</a>
+				<p style="margin-bottom: 20px;" class="lead">Don't have an account?</p>
+				<a class="btn btn-lg btn-primary" href="<c:url value="/register/"  />">Create it now!</a>
 			</div>
 		</div>
 		

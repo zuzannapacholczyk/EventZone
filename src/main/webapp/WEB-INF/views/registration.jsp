@@ -13,17 +13,33 @@
 		<div class="line_divs">
 			<div class="div_block1" id="register_form">
 				<form:form modelAttribute="userForm" action="/EventZone/register/registerUser/" method="POST" >	
-			 		<h2><form:label path="login" >Login</form:label></h2>
-						<form:input path="login" required="true"/><br>
-					<h2><form:label path="password">Password</form:label></h2>
-						<form:input path="password" type="password" required="true"/><br>
-					<h2><form:label path="name">Name</form:label></h2>
-						<form:input path="name"/><br>
-					<h2><form:label path="surname">Surname</form:label></h2>
-						<form:input path="surname"/><br>
-					<h2><form:label path="email" >Email</form:label></h2>
-						<form:input path="email" required="true"/><br>
-					<button id="submit_btn"  class="btn btn-large btn-success" type="submit">Register</button>
+			 		<div class="form-group">
+                        <form:label path="login" for="login" class="lead control-label">Username</form:label>
+                        <form:input path="login" type="text" class="form-control" id="login" name="login" required="true" ></form:input>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <form:label path="password" for="password" class="lead control-label">Password</form:label>
+                        <form:input path="password" type="password" class="form-control" id="password" name="password" required="true"></form:input>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <form:label path="name" for="name" class="lead control-label">Name</form:label>
+                        <form:input path="name" type="text" class="form-control" id="name" name="name"  ></form:input>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <form:label path="surname" for="surname" class="lead control-label">Surname</form:label>
+                        <form:input path="surname" type="text" class="form-control" id="surname" name="surname" ></form:input>
+                        <span class="help-block"></span>
+                    </div>
+					<div class="form-group">
+                        <form:label path="email" for="email" class="lead control-label">Email</form:label>
+                        <form:input path="email" type="text" class="form-control" id="email" name="email" required="true" ></form:input>
+                        <span class="help-block"></span>
+                    </div>
+					
+					<button id="submit_btn"  class="btn btn-lg btn-success btn-block" type="submit">Register</button>
 				</form:form>
 			</div>
 			<div id="register_msg">
