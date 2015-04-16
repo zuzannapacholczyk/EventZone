@@ -30,7 +30,7 @@
 #acc_create{
 	float: right;
 	text-align: center;
-	padding: 36px;
+	padding: 37px;
 }
 
 #other_logging_providers{
@@ -82,9 +82,10 @@
   	border-width: 2px; 
   	border-style:solid;
   	border-radius: 10px;
-  	background-color: #e9eaed;
+  	background-color: #3c3c3c;
   	margin: 10px 50px 80px 50px;
   	padding: 10px 20px 10px 20px;
+  	color: white;
 }
 
 .title{

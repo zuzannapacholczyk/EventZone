@@ -4,13 +4,13 @@
 
  	<div class="Container">
  		<c:if test="${not empty successMsg}">
- 			<div style="margin: 0px 50px" class="alert alert-success" role="alert">
+ 			<div style="margin: 0px 50px 50px 50px" class="alert alert-success" role="alert">
 		      <p class="lead"><strong>Well done!</strong> Your account has been created!</p> 
 		      <br><span class="lead">You may login now.</span>
 		    </div>
 		</c:if>
 		<c:if test="${not empty error}">
-			<div style="margin: 30px 50px 0 50px" class="alert alert-danger" role="alert">
+			<div style="margin: 0px 50px 50px 50px" class="alert alert-danger" role="alert">
 		    	<p class="lead"><strong>Oh snap!</strong> <c:out value="${error}"/></p>
 		    </div>
 		</c:if>
