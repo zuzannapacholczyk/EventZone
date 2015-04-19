@@ -26,8 +26,10 @@ http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 		</property>
 	</bean>
 
-
-
+	<bean id="participantManager" class="service.ParticipantManager">
+	</bean>
+	<bean id="eventManager" class="service.EventManager">
+	</bean>
 	<bean id="userManager" class="service.UserManagerImpl">
 	</bean>
 	<bean id="userDetailsManager" class="service.UserDetailsManager">

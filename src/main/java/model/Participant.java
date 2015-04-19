@@ -1,16 +1,42 @@
 package model;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * @author Zu
  *
  */
 public class Participant {
+	
+	public Participant(){};
+	
+	public Participant(int id, int eventId, String personId, int ifPaid,
+			int ticketId, Ticket ticket, Event event) {
+		super();
+		this.id = id;
+		this.eventId = eventId;
+		this.personId = personId;
+		this.ifPaid = ifPaid;
+		this.ticketId = ticketId;
+		this.ticket = ticket;
+		this.event = event;
+	}
+
 	private int id;
 	private int eventId;
 	private String personId;
 	private int ifPaid;
 	private int ticketId;
+
+	@ManyToOne
+	@JoinColumn(name = "ticketId", referencedColumnName = "id")
+	private Ticket ticket;
+	
+	@ManyToOne
+	@JoinColumn(name = "eventId", referencedColumnName = "id")
+	private Event event;
 
 	public int getId() {
 		return id;
@@ -19,7 +45,7 @@ public class Participant {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public int getEventId() {
 		return eventId;
 	}
@@ -50,5 +76,21 @@ public class Participant {
 
 	public void setTicketId(int ticketId) {
 		this.ticketId = ticketId;
+	}
+
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 }

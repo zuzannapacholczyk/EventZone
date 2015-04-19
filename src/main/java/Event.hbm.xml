@@ -11,6 +11,9 @@
 		<property name="name" type="java.lang.String">
 			<column name="NAME" />
 		</property>
+		<property name="subtitle" type="java.lang.String">
+			<column name="SUBTITLE" />
+		</property>
 		<property name="organizer" type="java.lang.String">
 			<column name="ORGANIZER" />
 		</property>
@@ -26,5 +29,21 @@
 		<property name="description" type="java.lang.String">
 			<column name="DESCRIPTION" />
 		</property>
+		<property name="picture" type="java.lang.String">
+			<column name="PICTURE" />
+		</property>
+		<set name="tickets" table="TICKETS" inverse="true" lazy="false">
+			<key>
+				<column name="eventId" not-null="true" />
+			</key>
+			<one-to-many class="model.Ticket" />
+		</set>
+
+		<set name="participants" table="PARTICIPANTS" inverse="true" lazy="false">
+			<key>
+				<column name="eventId" not-null="true" />
+			</key>
+			<one-to-many class="model.Participant" />
+		</set>
 	</class>
 </hibernate-mapping>

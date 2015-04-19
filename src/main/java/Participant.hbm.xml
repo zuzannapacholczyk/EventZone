@@ -20,5 +20,8 @@
 		<property name="ticketId" type="integer">
 			<column name="TICKETID" />
 		</property>
+		<many-to-one name="ticket" column="ticketId" class="model.Ticket" insert="false" update="false"/>
+		<many-to-one name="event" column="eventId" class="model.Event" insert="false" update="false"/>
+
 	</class>
 </hibernate-mapping>

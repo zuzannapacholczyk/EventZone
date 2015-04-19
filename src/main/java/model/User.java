@@ -1,15 +1,24 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.annotations.Entity;
+
 /**
  * @author Zu
  *
  */
+@Entity
 public class User {
 	private String login;
 	private String password;
 	private String name;
 	private String surname;
 	private String email;
+	
+	
+	private List<Event> events   = new ArrayList<Event>(0);
 
 	public void setLogin(final String login) {
 		this.login = login;
@@ -54,5 +63,13 @@ public class User {
 	public String toString() {
 		return "p: " + password + " " + "l: " + login + " " + "n: " + name + " " + "s: " + surname + " " + "e: "
 				+ email;
+	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
 	}
 }

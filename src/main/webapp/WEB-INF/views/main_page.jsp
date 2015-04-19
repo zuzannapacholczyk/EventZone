@@ -46,16 +46,20 @@
 	      	</h2>
 		</div>
 		<br><br><br>
+		<c:if test="${!empty listEvents}">
+		<c:forEach items="${listEvents}" var="eventInfo">
 		<hr class="featurette-divider">
 		  <div class="row featurette">	  	
 	        <div class="col-md-7">
-	          <h2 class="featurette-heading">Event number one. <span class="text-muted">It'll be fun.</span></h2>
-	          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	          <h2 class="featurette-heading"><c:out value="${eventInfo.event.name}"/><span class="text-muted"><c:out value="${eventInfo.event.subtitle}"/></span></h2>
+	          <p class="lead"><c:out value="${eventInfo.event.description}"/></p>
 	        </div>
 	        <div class="col-md-5">
 	          <img class="featurette-image img-responsive center-block" src="<c:url value="/resources/img/events/eventone.jpg" />" data-holder-rendered="true">
 	        </div>
 	      </div>
+	      	</c:forEach>
+	      </c:if>
 	      <hr class="featurette-divider">
 	      <div class="row featurette">
 	        <div class="col-md-7 col-md-push-5">
