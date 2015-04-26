@@ -24,10 +24,10 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Events<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="#">Create an Event</a></li>
-                  <li><a href="#">Manage my Events</a></li>
+                  <li><a href="<c:url value="/listForOrganizer/" />">Manage my Events</a></li>
                   <li class="divider"></li>
                   <li><a href="#">Subscribe to an Event</a></li>
-                  <li><a href="#">Manage subscribed Events</a></li>
+                  <li><a href="<c:url value="/listForParticipant/" />">Manage subscribed Events</a></li>
                 </ul>
               </li>
               <li ><a href="#">My Tickets</a></li>
@@ -46,8 +46,8 @@
 	      	</h2>
 		</div>
 		<br><br><br>
-		<c:if test="${!empty listEvents}">
-		<c:forEach items="${listEvents}" var="eventInfo">
+		<c:if test="${!empty listEventsForParticipant}">
+		<c:forEach items="${listEventsForParticipant}" var="eventInfo">
 		<hr class="featurette-divider">
 		  <div class="row featurette">	  	
 	        <div class="col-md-7">
@@ -61,26 +61,44 @@
 	      	</c:forEach>
 	      </c:if>
 	      <hr class="featurette-divider">
-	      <div class="row featurette">
-	        <div class="col-md-7 col-md-push-5">
-	          <h2 class="featurette-heading">Event number two. <span class="text-muted">You need to come.</span></h2>
-	          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-	        </div>
-	        <div class="col-md-5 col-md-pull-7">
-	          <img class="featurette-image img-responsive center-block" src="<c:url value="/resources/img/events/eventtwo.jpg"/>"  data-holder-rendered="true">
-	        </div>
-	      </div>
-	      <hr class="featurette-divider">
-	      <div class="row featurette">
+	      <!-- 
+		      <div class="row featurette">
+		        <div class="col-md-7 col-md-push-5">
+		          <h2 class="featurette-heading">Event number two. <span class="text-muted">You need to come.</span></h2>
+		          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		        </div>
+		        <div class="col-md-5 col-md-pull-7">
+		          <img class="featurette-image img-responsive center-block" src="<c:url value="/resources/img/events/eventtwo.jpg"/>"  data-holder-rendered="true">
+		        </div>
+		      </div>
+		      <hr class="featurette-divider">
+		      <div class="row featurette">
+		        <div class="col-md-7">
+		          <h2 class="featurette-heading">Event number three. <span class="text-muted">It's gonna be good.</span></h2>
+		          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		        </div>
+		        <div class="col-md-5">
+		          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="<c:url value="/resources/img/events/eventthree.png"/>"  data-holder-rendered="true">
+		        </div>
+		      </div>
+		      <hr class="featurette-divider">
+	      -->
+	      
+	      <!-- organizer part -->
+	      <c:if test="${!empty listEventsForOrganizer}">
+		<c:forEach items="${listEventsForOrganizer}" var="eventInfo">
+		<hr class="featurette-divider">
+		  <div class="row featurette">	  	
 	        <div class="col-md-7">
-	          <h2 class="featurette-heading">Event number three. <span class="text-muted">It's gonna be good.</span></h2>
-	          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	          <h2 class="featurette-heading"><c:out value="${eventInfo.name}"/><span class="text-muted"><c:out value="${eventInfo.subtitle}"/></span></h2>
+	          <p class="lead"><c:out value="${eventInfo.description}"/></p>
 	        </div>
 	        <div class="col-md-5">
-	          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="<c:url value="/resources/img/events/eventthree.png"/>"  data-holder-rendered="true">
+	          <img class="featurette-image img-responsive center-block" src="<c:url value="/resources/img/events/eventone.jpg" />" data-holder-rendered="true">
 	        </div>
 	      </div>
-	      <hr class="featurette-divider">
+	      	</c:forEach>
+	      </c:if>
 	</div>
 		
 		

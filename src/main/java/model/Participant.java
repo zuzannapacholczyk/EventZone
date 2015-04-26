@@ -13,7 +13,7 @@ public class Participant {
 	public Participant(){};
 	
 	public Participant(int id, int eventId, String personId, int ifPaid,
-			int ticketId, Ticket ticket, Event event) {
+			int ticketId, Ticket ticket, Event event, User person) {
 		super();
 		this.id = id;
 		this.eventId = eventId;
@@ -22,6 +22,7 @@ public class Participant {
 		this.ticketId = ticketId;
 		this.ticket = ticket;
 		this.event = event;
+		this.person = person;
 	}
 
 	private int id;
@@ -37,6 +38,10 @@ public class Participant {
 	@ManyToOne
 	@JoinColumn(name = "eventId", referencedColumnName = "id")
 	private Event event;
+	
+	@ManyToOne
+	@JoinColumn(name = "personId", referencedColumnName = "login")
+	private User person;
 
 	public int getId() {
 		return id;
@@ -92,5 +97,13 @@ public class Participant {
 
 	public void setEvent(Event event) {
 		this.event = event;
+	}
+
+	public User getPerson() {
+		return person;
+	}
+
+	public void setPerson(User person) {
+		this.person = person;
 	}
 }

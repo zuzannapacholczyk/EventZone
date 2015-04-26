@@ -1,10 +1,14 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Event;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
+import output.EventInfoForParticipant;
 import util.HibernateUtil;
 
 /**
@@ -13,19 +17,21 @@ import util.HibernateUtil;
  */
 public class EventManager {
 	
-    public Event getEventByOrganizer(String organizer)
+    public List<Event> getAllEventsByOrganizer(String organizer)
     {
-    	Event event = null;
+    	List<Event> events = new ArrayList<Event>();
 
         Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
         try
         {
-        	event = (Event) session.createQuery(
-                    "from Event" + " where organizer = ?").setString(0,
-                    organizer).uniqueResult();
-            session.getTransaction().commit();
+        	events = (List<Event>) session
+					.createQuery(
+							"from Event "
+									+ " where organizer = ?")
+					.setString(0, organizer).list();
+			session.getTransaction().commit();
         }
         catch (HibernateException e)
         {
@@ -33,7 +39,7 @@ public class EventManager {
             throw e;
         }
 
-        return event;
+        return events;
     }
 
     public void saveEvent(Event event)

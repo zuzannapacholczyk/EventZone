@@ -2,23 +2,27 @@ package service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import model.Participant;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import output.EventInfoForParticipant;
+import output.ParticipantForOrganizer;
 import util.HibernateUtil;
 
 public class ParticipantManager {
 
-	public List getAllParticipantsByEventId(int eventId) {
-		List participants = null;
+	public List<ParticipantForOrganizer> getAllParticipantsByEventId(int eventId) {
+		List<ParticipantForOrganizer> participants = null;
 
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		try {
 			participants = session
-					.createQuery("from Participant" + " where eventId = ?")
+					.createQuery("select new output.ParticipantForOrganizer(e.login, e.name, e.surname, e.email, t.cost)"
+							+ " from Participant p join p.ticket t join p.person e" + " where p.eventId = ?")
 					.setInteger(0, eventId).list();
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
@@ -67,7 +71,8 @@ public class ParticipantManager {
 		try {
 			events = (List<EventInfoForParticipant>) session
 					.createQuery(
-							"select new output.EventInfoForParticipant(t.cost, e.name, e.dateOfEvent, e.subtitle, e.organizer, e.place, e.description, e.picture) from Participant p join p.ticket t join p.event e"
+							"select new output.EventInfoForParticipant(t.cost, e.name, e.dateOfEvent, e.subtitle, e.organizer, e.place, e.description, e.picture)" 
+					+ " from Participant p join p.ticket t join p.event e"
 									+ " where personId = ?")
 					.setString(0, personId).list();
 			session.getTransaction().commit();
