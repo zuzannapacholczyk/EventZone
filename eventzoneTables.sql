@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - sobota-marzec-14-2015   
+--  File created - niedziela-kwiecieñ-26-2015   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence DEMO_CUST_SEQ
@@ -27,6 +27,11 @@
 
    CREATE SEQUENCE  "EVENTZONE"."DEMO_USERS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
+--  DDL for Sequence EVENTS_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "EVENTZONE"."EVENTS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
 --  DDL for Table EVENTS
 --------------------------------------------------------
 
@@ -37,7 +42,9 @@
 	"PLACE" VARCHAR2(100 BYTE), 
 	"DATEOFEVENT" DATE, 
 	"DATEOFCREATION" DATE, 
-	"DESCRIPTION" VARCHAR2(1000 BYTE)
+	"DESCRIPTION" VARCHAR2(1000 BYTE), 
+	"PICTURE" VARCHAR2(200 BYTE), 
+	"SUBTITLE" VARCHAR2(60 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -194,6 +201,23 @@
 
   ALTER TABLE "EVENTZONE"."TICKETS" ADD CONSTRAINT "TICKETS_FK1" FOREIGN KEY ("EVENTID")
 	  REFERENCES "EVENTZONE"."EVENTS" ("ID") ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger EVENTS_TRG
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "EVENTZONE"."EVENTS_TRG" 
+BEFORE INSERT ON EVENTS 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW.ID IS NULL THEN
+      SELECT EVENTS_SEQ.NEXTVAL INTO :NEW.ID FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+/
+ALTER TRIGGER "EVENTZONE"."EVENTS_TRG" ENABLE;
 --------------------------------------------------------
 --  DDL for Function CUSTOM_AUTH
 --------------------------------------------------------
