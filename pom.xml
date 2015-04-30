@@ -53,21 +53,21 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
-		
+
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>3.6.3.Final</version>
 		</dependency>
-		
-		<!--  oracle and hibernate util stuff -->
+
+		<!-- oracle and hibernate util stuff -->
 		<dependency>
-		    <groupId>javassist</groupId>
-		    <artifactId>javassist</artifactId>
-		    <version>3.12.1.GA</version>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
 		</dependency>
-		
+
 		<!-- jar for "c" taglib in jsp files -->
 		<dependency>
 			<groupId>jstl</groupId>
@@ -75,20 +75,31 @@
 			<version>1.2</version>
 		</dependency>
 		<dependency>
-		  <groupId>javax.servlet</groupId>
-		  <artifactId>javax.servlet-api</artifactId>
-		  <version>3.1.0</version>
-		  <scope>provided</scope>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
 		</dependency>
-		
+
+		<!-- pdf file creator -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.1</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>EventZone</finalName>
 		<plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
-            </plugin>
-        </plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>

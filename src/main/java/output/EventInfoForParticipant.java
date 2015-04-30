@@ -23,6 +23,8 @@ public class EventInfoForParticipant {
 		this.event.setName(event.getName());
 		this.event.setDescription(event.getDescription());
 		this.event.setSubtitle(event.getSubtitle());
+		this.event.setDateOfEvent(event.getDateOfEvent());
+		this.event.setPlace(event.getPlace());
 	}
 
 	public float getCost() {
