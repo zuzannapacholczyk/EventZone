@@ -1,10 +1,16 @@
 package pdfoperations;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import model.Event;
+import output.EventInfoForParticipant;
 import output.ParticipantForOrganizer;
 import junit.framework.TestCase;
 
@@ -15,15 +21,34 @@ public class PdfFileOperatorTest extends TestCase {
 		pdfOperator.createFile();
 	}
 
-	public void testCreatingListOfParticipants() {
-		@SuppressWarnings("deprecation")
-		Event event = new Event("Sting concert", new Date(2015, 11, 10),
+	public void testCreatingListOfParticipants() throws ParseException, MalformedURLException, IOException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+		Date date = dateFormat.parse("2015-08-19 06:11:03.0");
+		Event event = new Event("Sting concert", date,
 				"Nice event", "Sting management", "Wroclaw",
-				"You have to be there", "C:\\picture.jpg");
+				"You have to be there", "C:\\picture.jpg", null);
 		PdfFileOperator pdfOperator = new PdfFileOperator();
 		pdfOperator.createListOfParticipants(createListOfParticipants(), event);
 	}
 
+	
+	public void testCreatingTicket() throws ParseException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+		Date date = dateFormat.parse("2015-08-19 06:11:03.0");
+		Event event = new Event("Sting concert", date,
+				"Nice event", "Sting management", "Wroclaw",
+				"You have to be there", "C:\\picture.jpg", null);
+		EventInfoForParticipant eventInfo = new EventInfoForParticipant(170, event);
+		PdfFileOperator pdfOperator = new PdfFileOperator();
+		pdfOperator.createTicket(eventInfo, "Joanna", "Borowiak");
+	}
+	
+	public void testModifyingFile() {
+		PdfFileOperator pdfOperator = new PdfFileOperator();
+		pdfOperator.modifyExistingFile();
+	}
+	
+	// private
 	private List<ParticipantForOrganizer> createListOfParticipants() {
 		List<ParticipantForOrganizer> resultList = new ArrayList<ParticipantForOrganizer>();
 		ParticipantForOrganizer participant = new ParticipantForOrganizer(

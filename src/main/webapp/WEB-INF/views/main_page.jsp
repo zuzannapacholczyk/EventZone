@@ -52,6 +52,7 @@
 		  <div class="row featurette">	  	
 	        <div class="col-md-7">
 	          <h2 class="featurette-heading"><c:out value="${eventInfo.event.name}"/><span class="text-muted"><c:out value="${eventInfo.event.subtitle}"/></span></h2>
+	          <h2 class="featurette-heading"><c:out value="${eventInfo.event.place}"/><span class="text-muted"><c:out value="${eventInfo.event.dateOfEvent}"/></span></h2>
 	          <p class="lead"><c:out value="${eventInfo.event.description}"/></p>
 	        </div>
 	        <div class="col-md-5">
@@ -91,6 +92,7 @@
 		  <div class="row featurette">	  	
 	        <div class="col-md-7">
 	          <h2 class="featurette-heading"><c:out value="${eventInfo.name}"/><span class="text-muted"><c:out value="${eventInfo.subtitle}"/></span></h2>
+	          <h2 class="featurette-heading"><c:out value="${eventInfo.event.place}"/><span class="text-muted"><c:out value="${eventInfo.event.dateOfEvent}"/></span></h2>
 	          <p class="lead"><c:out value="${eventInfo.description}"/></p>
 	        </div>
 	        <div class="col-md-5">

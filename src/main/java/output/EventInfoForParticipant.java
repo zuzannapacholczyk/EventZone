@@ -11,10 +11,10 @@ public class EventInfoForParticipant {
 	private Event event;
 
 	public EventInfoForParticipant(float cost, String name, Date dateOfEvent, String subtitle,
-			String organizer, String place, String description, String picture) {
+			String organizer, String place, String description, String picture, String backgroudFile) {
 		this.cost = cost;
 		this.event = new Event(name, dateOfEvent, subtitle, organizer, place, description,
-				picture);
+				picture, backgroudFile);
 	}
 
 	public EventInfoForParticipant(float cost, Event event) {
@@ -25,6 +25,8 @@ public class EventInfoForParticipant {
 		this.event.setSubtitle(event.getSubtitle());
 		this.event.setDateOfEvent(event.getDateOfEvent());
 		this.event.setPlace(event.getPlace());
+		this.event.setPicture(event.getPicture());
+		this.event.setBackgroundFile(event.getBackgroundFile());
 	}
 
 	public float getCost() {

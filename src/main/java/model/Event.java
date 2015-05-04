@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,20 +14,21 @@ public class Event {
 
 	public Event() {
 	};
-
-	public Event(String name, Date dateOfEvent, String subtitle, String organizer, String place, String description, String picture) {
+	
+	public Event(String name, Date dateOfEvent, String subtitle, String organizer, String place, String description, String picture,  String backgroudFile) {
 		this.name = name;
 		this.subtitle = subtitle;
 		this.organizer = organizer;
+		this.dateOfEvent = dateOfEvent;
 		this.place = place;
-		
 		this.description = description;
 		this.picture = picture;
+		this.backgroundFile = backgroundFile;
 	}
 	
 	public Event(int id, String name, String subtitle, String organizer,
 			String place, Date dateOfEvent, Date dateOfCreation,
-			String description, String picture, Set<Ticket> tickets,
+			String description, String picture, String backgroundFile, Set<Ticket> tickets,
 			Set<Participant> participants) {
 		super();
 		this.id = id;
@@ -38,6 +40,7 @@ public class Event {
 		this.dateOfCreation = dateOfCreation;
 		this.description = description;
 		this.picture = picture;
+		this.backgroundFile = backgroundFile;
 		this.tickets = tickets;
 		this.participants = participants;
 	}
@@ -51,6 +54,7 @@ public class Event {
 	private Date dateOfCreation;
 	private String description;
 	private String picture;
+	private String backgroundFile;
 
 	private Set<Ticket> tickets = new HashSet<Ticket>(0);
 	private Set<Participant> participants = new HashSet<Participant>(0);
@@ -141,5 +145,13 @@ public class Event {
 
 	public void setTickets(Set<Ticket> tickets) {
 		this.tickets = tickets;
+	}
+
+	public String getBackgroundFile() {
+		return backgroundFile;
+	}
+
+	public void setBackgroundFile(String backgroundFile) {
+		this.backgroundFile = backgroundFile;
 	}
 }
