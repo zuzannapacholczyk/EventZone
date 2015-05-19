@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - niedziela-kwiecieñ-26-2015   
+--  File created - wtorek-maj-19-2015   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence DEMO_CUST_SEQ
@@ -44,7 +44,7 @@
 	"DATEOFCREATION" DATE, 
 	"DESCRIPTION" VARCHAR2(1000 BYTE), 
 	"PICTURE" VARCHAR2(200 BYTE), 
-	"SUBTITLE" VARCHAR2(60 BYTE),
+	"SUBTITLE" VARCHAR2(60 BYTE), 
 	"BACKGROUNDFILE" VARCHAR2(200 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
