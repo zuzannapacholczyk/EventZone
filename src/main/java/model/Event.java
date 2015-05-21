@@ -15,7 +15,7 @@ public class Event {
 	public Event() {
 	};
 	
-	public Event(String name, Date dateOfEvent, String subtitle, String organizer, String place, String description, String picture,  String backgroudFile) {
+	public Event(String name, Date dateOfEvent, String subtitle, String organizer, String place, String description, String picture,  String backgroundFile) {
 		this.name = name;
 		this.subtitle = subtitle;
 		this.organizer = organizer;
