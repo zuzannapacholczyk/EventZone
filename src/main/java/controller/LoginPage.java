@@ -6,6 +6,7 @@ import java.util.List;
 import model.Event;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,17 +21,12 @@ import service.EventManager;
 import service.ParticipantManager;
 
 @Controller
+@RequestMapping("/main")
 @SessionAttributes
 public class LoginPage {
 
-	/*
-	 * @RequestMapping(method = RequestMethod.GET) public ModelAndView
-	 * getMainPage() {
-	 * 
-	 * ModelAndView model = new ModelAndView("index");
-	 * 
-	 * return model; }
-	 */
+	
+	 
 
 	@Autowired
 	private ParticipantManager participantManager;
@@ -38,16 +34,21 @@ public class LoginPage {
 	@Autowired
 	private EventManager eventManager;
 
-	@RequestMapping(value = "/listForParticipant", method = RequestMethod.GET)
-	public String listEventsForParticipant(final ModelMap model,
-			final String username) {
-		List<EventInfoForParticipant> listEventsForParticipant = this.participantManager
-				.getEventsForParticipant(username);
+	@RequestMapping(value = "listForParticipant", method = RequestMethod.GET)
+	public String listEventsForParticipant() {
+		ModelMap model = new ModelMap();
+		
+		String username = 
+				SecurityContextHolder.getContext().getAuthentication().getName();
+		System.out.println("userP: "+username);
+		List<EventInfoForParticipant> listEventsForParticipant = 
+				participantManager.getEventsForParticipant(username);
+		
 		model.addAttribute("listEventsForParticipant", listEventsForParticipant);
 		return "main_page";
 	}
 
-	@RequestMapping(value = "/listForOrganizer", method = RequestMethod.GET)
+	@RequestMapping(value = "listForOrganizer/", method = RequestMethod.GET)
 	public String listEventsForOrganizer(final ModelMap model,
 			final Principal principal) {
 		String username = principal.getName();
@@ -57,22 +58,15 @@ public class LoginPage {
 		return "main_page";
 	}
 
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String printWelcome(final ModelMap model, final Principal principal) {
+	@RequestMapping(method = RequestMethod.GET)
+	public String printWelcome() {
 
-		String name = principal.getName();
-		model.addAttribute("username", name);
-		return "redirect:/listForParticipant";
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		System.out.println("user: "+username);
+		
+		return "redirect:/main/listForParticipant";
 
 	}
 
-	@RequestMapping(value = "/loginError", method = RequestMethod.GET)
-	public ModelAndView loginError() {
-
-		ModelAndView model = new ModelAndView("index");
-		model.addObject("error",
-				"Incorrect login name or password. Please try again!");
-
-		return model;
-	}
+	
 }
