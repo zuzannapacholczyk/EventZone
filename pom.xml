@@ -59,6 +59,12 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.8.Final</version>
+			 <exclusions>
+		        <exclusion>
+		            <groupId>org.javassist</groupId>
+		            <artifactId>javassist</artifactId>
+		        </exclusion>
+		    </exclusions>
 		</dependency> 
 
 		<!-- oracle and hibernate util stuff -->

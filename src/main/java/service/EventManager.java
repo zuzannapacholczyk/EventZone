@@ -17,7 +17,53 @@ import util.HibernateUtil;
  */
 public class EventManager {
 	
-    public List<Event> getAllEventsByOrganizer(String organizer)
+	public Event getEventById(String id){
+		Event event = new Event();
+		
+		Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+        try
+        {
+        	event = (Event) session
+					.createQuery("from Event" 
+							+ " where id = ?")
+							.setString(0, id).uniqueResult();
+			session.getTransaction().commit();
+        }
+        catch (HibernateException e)
+        {
+            session.getTransaction().rollback();
+            throw e;
+        }
+		
+		return event;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Event> getAllEventsInDataBase(){
+		List<Event> allEvents = new ArrayList<Event>();
+		
+		Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+        try
+        {
+        	allEvents = (List<Event>) session
+					.createQuery("from Event").list();
+			session.getTransaction().commit();
+        }
+        catch (HibernateException e)
+        {
+            session.getTransaction().rollback();
+            throw e;
+        }
+		
+		return allEvents;
+	}
+	
+    @SuppressWarnings("unchecked")
+	public List<Event> getAllEventsByOrganizer(String organizer)
     {
     	List<Event> events = new ArrayList<Event>();
 

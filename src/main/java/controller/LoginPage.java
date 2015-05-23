@@ -35,17 +35,17 @@ public class LoginPage {
 	private EventManager eventManager;
 
 	@RequestMapping(value = "listForParticipant", method = RequestMethod.GET)
-	public String listEventsForParticipant() {
-		ModelMap model = new ModelMap();
+	public ModelAndView listEventsForParticipant() {
+		ModelAndView model = new ModelAndView("myEvents");
 		
 		String username = 
 				SecurityContextHolder.getContext().getAuthentication().getName();
 		System.out.println("userP: "+username);
 		List<EventInfoForParticipant> listEventsForParticipant = 
 				participantManager.getEventsForParticipant(username);
-		
-		model.addAttribute("listEventsForParticipant", listEventsForParticipant);
-		return "main_page";
+		model.addObject("username", username);
+		model.addObject("listEventsForParticipant", listEventsForParticipant);
+		return model;
 	}
 
 	@RequestMapping(value = "listForOrganizer/", method = RequestMethod.GET)
@@ -59,12 +59,17 @@ public class LoginPage {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome() {
+	public ModelAndView printWelcome() {
 
+		ModelAndView model = new ModelAndView("main_page");
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		System.out.println("user: "+username);
 		
-		return "redirect:/main/listForParticipant";
+		List<Event> allEvents = 
+				eventManager.getAllEventsInDataBase();
+		model.addObject("events",  allEvents);
+		model.addObject("username", username);
+		return model;
 
 	}
 
