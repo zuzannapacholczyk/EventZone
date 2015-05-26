@@ -8,9 +8,7 @@ import model.Event;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import exceptions.CreateAccountException;
 import exceptions.CreateEventException;
-import output.EventInfoForParticipant;
 import util.HibernateUtil;
 
 /**

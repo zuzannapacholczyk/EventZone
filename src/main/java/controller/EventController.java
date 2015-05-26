@@ -5,11 +5,15 @@ import model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import exceptions.CreateEventException;
 import service.EventManager;
 
 
@@ -41,6 +45,26 @@ public class EventController {
 				SecurityContextHolder.getContext().getAuthentication().getName();
 		
 		model.addObject("username", username);
+		model.addObject("eventForm", new Event());
 		return model; 
+	}
+	
+	@RequestMapping(value = "createEvent", method = RequestMethod.POST)
+	public ModelAndView createEvent(@ModelAttribute("eventForm") final Event event, final BindingResult result, final RedirectAttributes redir) {
+
+		ModelAndView model = null;
+		Event newEvent = event;
+		try {
+			eventManager.saveEvent(newEvent);
+		} catch (CreateEventException e) {
+			model = new ModelAndView("redirect:/main/event/create?fail=true");
+			redir.addFlashAttribute("createEventFailureMsg", e.getMessage());
+			System.out.println("Ex msg: " + e.getMessage());
+			return model;
+		}
+		model = new ModelAndView("redirect:/listForOrganizer/");
+		redir.addFlashAttribute("successMsg", "Your event has been created!");
+		return model;
+
 	}
 }
